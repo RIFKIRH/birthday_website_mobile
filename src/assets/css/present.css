@@ -1,199 +1,76 @@
-/* shoutout to Lena Stanley for the present styling https://codepen.io/lenasta92579651/pen/oNWgeoq 
- and Cyril for the ticket https://codepen.io/ArnHack/pen/ygQOYd
- */
-
 .birthday-gift {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
 }
 
-.birthday-gift:before {
-  content: "";
-  position: absolute;
-  width: 170px;
-  height: 20px;
-  border-radius: 50%;
-  top: 90px;
-  left: -10px;
-}
-
-input#click {
-  display: none;
-}
-
-/* box */
 .gift {
   position: relative;
-  width: 300px;
-  height: 200px;
-  background-color: #e9c46a;
+  width: 200px;
+  height: 300px;
+  background-color: #f0c14b;
+  border: 2px solid #b38b09;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 
-/* ribbon box */
-.gift:before {
-  content: "";
+.gift-top, .gift-bottom {
   position: absolute;
-  width: 40px;
-  height: 200px;
-  background-color: #e76f51;
-  left: 124px;
+  width: 90%;
+  height: 50%;
+  background-color: #f7a518;
 }
 
-/* shadow */
-.gift:after {
-  content: "";
-  position: absolute;
-  box-shadow: inset 0 10px rgba(0, 0, 0, 0.3);
-  width: 300px;
-  height: 100px;
-}
-
-/* box cover */
 .gift-top {
-  position: absolute;
-  background-color: #e9c46a;
-  width: 340px;
-  height: 75px;
-  top: -75px;
-  left: -20px;
-  transform-origin: bottom left;
-  transition: .3s;
+  top: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
-/* ribbon cover */
-.gift-top:before {
-  content: "";
-  position: absolute;
-  width: 40px;
-  height: 75px;
-  background-color: #e76f51;
-  left: 138px;
+.gift-bottom {
+  bottom: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
-.gift-top:after {
-  content: "";
+.raffle {
   position: absolute;
-  width: 10px;
-  height: 0;
-  border-bottom: 60px solid #e76f51;
-  border-top: 60px solid #e76f51;
-  border-left: 0px solid transparent;
-  border-right: 60px solid transparent;
-  transform: rotate(-90deg);
-  left: 130px;
-  top: -90px;
-}
-
-#click:checked + .gift .gift-top {
-  transform: rotate(-110deg) scaleX(0.85);
-}
-
-#raffle-red,
-.entry div {
-  position: absolute;
-  transition: 0.5s;
-  color: #333;
-  z-index: -1;
+  width: 180px;
+  height: 100px;
+  background-color: #c53030;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .raffle-1 {
-  transform: translateY(-20px);
+  top: -120px;
 }
 
-#click:checked + .gift .raffle-1 {
-  transform: translateY(-110px) translateX(-160px);
+.raffle-2 {
+  top: -10px;
 }
 
-#click:checked + .gift .raffle-2 {
-  transform: translateY(-200px) translateX(-10px);
+.raffle-3 {
+  top: 100px;
 }
 
-#click:checked + .gift .raffle-3 {
-  transform: translateY(-300px) translateX(-150px);
-}
-
-#click:checked + .gift .entry div {
-  transform: translateY(-70px);
-}
-
-.entry {
-  text-align: center;
-  position: relative;
-  height: 100%;
-}
-
-/* ticket base */
-#raffle-red div {
-  background-image: radial-gradient(circle at top left, transparent 17px, #dc143c 17px),
-    radial-gradient(circle at top right, transparent 17px, #dc143c 17px),
-    radial-gradient(circle at bottom left, transparent 17px, #dc143c 17px),
-    radial-gradient(circle at bottom right, transparent 17px, #dc143c 17px);
-  box-shadow: 0 38px 14px -35px rgba(0, 0, 0, 0.3);
-  background-size: 50% 50%;
-  background-position: top left, top right, bottom left, bottom right;
-  width: 170px;
-  height: 80px;
-  margin-left: 150px;
-  margin-top: -40px;
-  background-repeat: no-repeat;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  transition: 0.5s;
-}
-
-/* ticket text */
 .ticket-text {
-  display: block;
-  font-family: "HelveticaNeue-CondensedBold", "Arial Narrow", Impact, "Roboto", sans-serif;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: bold;
-  padding-top: 9px;
-  text-transform: uppercase;
-  color: #333;
-  text-align: center;
-  letter-spacing: 1px;
-  white-space: pre-line;
-}
-
-/* raffles */
-#raffle-red div:before {
-  width: 183px;
-  height: 45px;
-  padding-left: 30px;
-  left: -7px;
-  top: 17px;
-  background-size: 7px 7px;
-  background-repeat: repeat-y;
-  background-position: 0 0, 0 0, 100% 0, 100% 0;
-  background-image: linear-gradient(45deg, transparent 75%, #dc143c 75%),
-    linear-gradient(135deg, transparent 75%, #dc143c 75%), linear-gradient(-45deg, transparent 75%, #dc143c 75%),
-    linear-gradient(-135deg, transparent 75%, #dc143c 75%);
-  line-height: 1.9;
-  font-size: 30px;
-  text-align: left;
-  content: "";
-  position: absolute;
-}
-
-/* orange box */
-#raffle-red div:after {
-  width: 70px;
-  padding-top: 120px;
-  top: -23px;
-  left: 52px;
-  border: 3px solid #fa8072;
-  border-radius: 10px;
-  transform: rotate(-90deg);
-  font-family: monospace;
-  text-align: center;
-  line-height: 1;
-  content: "";
-  position: absolute;
+  white-space: nowrap; /* Prevent breaking lines */
+  overflow: hidden; /* Hide overflowed text */
+  text-overflow: ellipsis; /* Add ellipsis if text is too long */
+  padding: 0 8px; /* Add some padding */
+  max-width: 90%; /* Ensure it fits within the box */
 }
